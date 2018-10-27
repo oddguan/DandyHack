@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using System;
 public class ChangeImage : MonoBehaviour {
 
-    public Sprite[] spLeft;
+    public Sprite spLeft;
     public Sprite spRight;
     public Sprite spMiddle;
     public Button PressToFight;
