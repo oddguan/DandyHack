@@ -147,8 +147,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 369.70007, y: 15}
-  m_SizeDelta: {x: 465.1, y: 162.7}
+  m_AnchoredPosition: {x: 319, y: 15}
+  m_SizeDelta: {x: 590, y: 162.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &336751558
 MonoBehaviour:
@@ -259,8 +259,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 369.70007, y: -191}
-  m_SizeDelta: {x: 465.1, y: 162.7}
+  m_AnchoredPosition: {x: 319, y: -191}
+  m_SizeDelta: {x: 590, y: 162.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &530565986
 MonoBehaviour:
@@ -393,18 +393,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 5
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Recruit University
 --- !u!222 &789412342
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -530,18 +530,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 5
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: PVE (Battle)
 --- !u!222 &1044425876
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -655,8 +655,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 369.7, y: 212.8}
-  m_SizeDelta: {x: 465.1, y: 162.7}
+  m_AnchoredPosition: {x: 319, y: 212.8}
+  m_SizeDelta: {x: 590, y: 162.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1311269819
 MonoBehaviour:
@@ -883,18 +883,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 5
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Collection
 --- !u!222 &1707974382
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -912,6 +912,7 @@ GameObject:
   - component: {fileID: 2089888672}
   - component: {fileID: 2089888671}
   - component: {fileID: 2089888670}
+  - component: {fileID: 2089888673}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -979,3 +980,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2089888673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2089888669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ec976a9dfd0478188cd54fa408e106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Counter: 0
+  hand: {fileID: 1311269817}
+  DrawaCard: {fileID: 1311269819}
+  Collection: {fileID: 336751558}
+  InitiateBattle: {fileID: 530565986}
