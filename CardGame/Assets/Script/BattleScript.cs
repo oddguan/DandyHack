@@ -9,6 +9,10 @@ public class BattleScript : MonoBehaviour
 {
 	public Button BacktoMain;
     public Button PressToFight;
+    public Button YouWinBack;
+    public Button YouLoseBack;
+    public GameObject YouWinGameUI;
+    public GameObject YouLoseGameUI;
     public Slider PlayerHealthBar;
     public Slider EnemyHealthBar;
 	public double PlayerHealth = 12000;
@@ -26,6 +30,8 @@ public class BattleScript : MonoBehaviour
 	{
 		BacktoMain.onClick.AddListener(BackToMainSwitch);
         PressToFight.onClick.AddListener(Count);
+        YouWinBack.onClick.AddListener(BackToMainSwitch);
+        YouLoseBack.onClick.AddListener(BackToMainSwitch);
         EnemycurrentHealth = EnemyHealth;
         PlayercurrentHealth = PlayerHealth;
 	}
@@ -55,10 +61,12 @@ public class BattleScript : MonoBehaviour
         if (enemyhealthratio <= 0.0f){
             Debug.Log("You WIN");
             continuetofight = false;
+            YouWinGameUI.SetActive(true);
         }
         if (playerhealthratio <= 0.0f ){
 			Debug.Log("You LOSE, try again");
 			continuetofight = false;
+            YouLoseGameUI.SetActive(true);
         }
 
 	}
