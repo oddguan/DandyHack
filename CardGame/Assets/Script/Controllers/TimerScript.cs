@@ -11,6 +11,7 @@ public class TimerScript : MonoBehaviour {
 	[SerializeField] private Text uiText;
 	[SerializeField] private float mainTimer;
 	[SerializeField] private Text Opportunity;
+	[SerializeField] private Image Mascot;
 
 	private float timer;	
 	private bool canCount = true;
