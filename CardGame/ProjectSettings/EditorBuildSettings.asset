@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 717fecb45f49240c38bb399f1129d4d8
+  - enabled: 1
+    path: Assets/Scenes/MyCollection.unity
+    guid: 9a01a4a1081dc41bbbb6812546506f06
+  - enabled: 1
+    path: Assets/Scenes/DrawaCard.unity
+    guid: 3aaf65d2e5a0d4eb49f8dd2488d55874
   m_configObjects: {}
