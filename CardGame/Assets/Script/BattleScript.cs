@@ -11,13 +11,23 @@ public class BattleScript : MonoBehaviour
     public Button PressToFight;
     public Slider PlayerHealthBar;
     public Slider EnemyHealthBar;
-    public Sprite[] othersprites;
+	public double PlayerHealth = 12000;
+	public double PlayerAttack = 1100;
+	public double EnemyHealth = 10000;
+	public double EnemyAttack = 1000;
+    public static double EnemycurrentHealth;
+    public static double PlayercurrentHealth;
+    float enemyhealthratio = 1.0f;
+    float playerhealthratio = 1.0f;
+    bool continuetofight = true;
 
 	// Use this for initialization
 	void Start()
 	{
 		BacktoMain.onClick.AddListener(BackToMainSwitch);
         PressToFight.onClick.AddListener(Count);
+        EnemycurrentHealth = EnemyHealth;
+        PlayercurrentHealth = PlayerHealth;
 	}
 
 	void BackToMainSwitch()
@@ -28,12 +38,28 @@ public class BattleScript : MonoBehaviour
 	}
 
     void Count(){
-        
+        if (continuetofight)
+        {
+            PlayercurrentHealth = PlayercurrentHealth - EnemyAttack;
+            EnemycurrentHealth = EnemycurrentHealth - PlayerAttack;
+        }
     }
 
 	// Update is called once per frame
 	void Update()
 	{
+        float enemyhealthratio = (float)(PlayercurrentHealth / PlayerHealth);
+        float playerhealthratio = (float)(EnemycurrentHealth/EnemyHealth);
+        EnemyHealthBar.value = enemyhealthratio;
+        PlayerHealthBar.value = playerhealthratio;
+        if (enemyhealthratio <= 0.0f){
+            Debug.Log("You WIN");
+            continuetofight = false;
+        }
+        if (playerhealthratio <= 0.0f ){
+			Debug.Log("You LOSE, try again");
+			continuetofight = false;
+        }
 
 	}
 }
