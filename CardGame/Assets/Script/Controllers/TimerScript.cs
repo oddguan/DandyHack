@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Data;
 using Mono.Data.SqliteClient;
-using System.IO;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class TimerScript : MonoBehaviour {
 
@@ -17,9 +17,9 @@ public class TimerScript : MonoBehaviour {
 	[SerializeField] private Text Atk_text;
 	[SerializeField] private Text Hp_text;
 	[SerializeField] private Text Rarity_text;
-	[SerializeField] private Text Name_text;
-	[SerializeField] private Button backButton;
-	private float timer;
+	[SerializeField]private Text Name_text;
+    [SerializeField] private Button BackButton;
+	private float timer;	
 	private bool canCount = true;
 	private bool doOnce = false;
 	private string toBeDisplay;
@@ -34,9 +34,10 @@ public class TimerScript : MonoBehaviour {
 
 	private System.Random rnd;
 	private string outputFile;
-	// private string defaultTexturePath="Assets/images/1.jpg";
+	private string defaultTexturePath="Assets/images/1.jpg";
 
 	void Start() {
+		PlayerPrefs.SetInt("currentOpportunity",1000);
 		currentOpportunity = PlayerPrefs.GetInt("currentOpportunity", 5);
 		timer = mainTimer;
 		toBeDisplay = currentOpportunity.ToString()+"/5";
@@ -45,7 +46,7 @@ public class TimerScript : MonoBehaviour {
 		_constr="URI=file:" + Application.dataPath + "/Plugins/GameDB.db";
 		_dbc=new SqliteConnection(_constr);
 		_dbc.Open();
-		backButton.onClick.AddListener(back);
+        BackButton.onClick.AddListener(back);
 	}
 	void Update() {
 		if(timer>=0.0f && canCount) {
@@ -133,8 +134,9 @@ public class TimerScript : MonoBehaviour {
 		return toBeReturn;
 	}
 
-	void back() {
+    void back(){
 		SceneManager.LoadScene("Main");
-	}
+		Debug.Log("Loaded Main Scene");
+    }
 
 }
