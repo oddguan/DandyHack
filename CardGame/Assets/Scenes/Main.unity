@@ -913,6 +913,7 @@ GameObject:
   - component: {fileID: 2089888671}
   - component: {fileID: 2089888670}
   - component: {fileID: 2089888673}
+  - component: {fileID: 2089888674}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -996,3 +997,14 @@ MonoBehaviour:
   DrawaCard: {fileID: 1311269819}
   Collection: {fileID: 336751558}
   InitiateBattle: {fileID: 530565986}
+--- !u!114 &2089888674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2089888669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52a50235bc89c4888b3ceb9d6850bb32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
