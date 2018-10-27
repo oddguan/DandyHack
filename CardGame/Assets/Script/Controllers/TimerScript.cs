@@ -11,8 +11,12 @@ public class TimerScript : MonoBehaviour {
 	[SerializeField] private Text uiText;
 	[SerializeField] private float mainTimer;
 	[SerializeField] private Text Opportunity;
-	[SerializeField] private Image Mascot;
-
+	[SerializeField] private Sprite Mascot;
+	[SerializeField] private Image M;
+	[SerializeField] private Text Atk_text;
+	[SerializeField] private Text Hp_text;
+	[SerializeField] private Text Rarity_text;
+	[SerializeField]private Text Name_text;
 	private float timer;	
 	private bool canCount = true;
 	private bool doOnce = false;
@@ -28,8 +32,10 @@ public class TimerScript : MonoBehaviour {
 
 	private System.Random rnd;
 	private string outputFile;
+	private string defaultTexturePath="Assets/images/1.jpg";
 
 	void Start() {
+		PlayerPrefs.SetInt("currentOpportunity",1000);
 		currentOpportunity = PlayerPrefs.GetInt("currentOpportunity", 5);
 		timer = mainTimer;
 		toBeDisplay = currentOpportunity.ToString()+"/5";
@@ -38,7 +44,6 @@ public class TimerScript : MonoBehaviour {
 		_constr="URI=file:" + Application.dataPath + "/Plugins/GameDB.db";
 		_dbc=new SqliteConnection(_constr);
 		_dbc.Open();
-		writeRecord();
 	}
 	void Update() {
 		if(timer>=0.0f && canCount) {
@@ -79,7 +84,8 @@ public class TimerScript : MonoBehaviour {
 			toBeDisplay = currentOpportunity.ToString()+"/5";
 			toBeDisplay = "You have " + toBeDisplay + " opportunities left";
 			Opportunity.text = toBeDisplay;
-			SelectCard();
+			string n = SelectCard();
+			M.sprite = Resources.Load <Sprite> (n);
 		}
 		else{
 			Opportunity.text = "No recruit opportunity left!";
@@ -87,7 +93,8 @@ public class TimerScript : MonoBehaviour {
 		
 	}
 
-	public void SelectCard() {
+	public string SelectCard() {
+		string toBeReturn="";
 		string rarity;
         double rarity_number;
         rnd = new System.Random();
@@ -106,7 +113,7 @@ public class TimerScript : MonoBehaviour {
                 rarity="SSR";
         }
 		_dbcm=_dbc.CreateCommand();
-		_dbcm.CommandText=string.Format("SELECT ID, Name, Attack, Health " +
+		_dbcm.CommandText=string.Format("SELECT ID, Name, Attack, Health, Rarity " +
 			"FROM `CardBase`" + "WHERE Rarity = (" +
 			"SELECT RarityID FROM `Possibility`"+
 			"WHERE RarityName=\"{0}\")" +
@@ -115,19 +122,12 @@ public class TimerScript : MonoBehaviour {
 		while(_dbr.Read()){
 			int ID = _dbr.GetInt32(0);
 			Debug.Log(ID);
+			Name_text.text = _dbr.GetString(1);
+			toBeReturn = _dbr.GetString(1);
+			Atk_text.text = _dbr.GetFloat(2).ToString();
+			Hp_text.text = _dbr.GetFloat(3).ToString();
+			Rarity_text.text = rarity;
 		}
-		
-		// string Name = _dbr.GetString(1);
-		// float Attack = _dbr.GetFloat(2);
-		// float Health = _dbr.GetFloat(3);
-		
-		// Debug.Log(Name);
-		// Debug.Log(Attack);
-		// Debug.Log(Health);
-	}
-
-	public void writeRecord() {
-		outputFile = "Assets/Script/playerInventory.txt";
-		File.AppendAllText(outputFile,"Hello\nWorld\n");
+		return toBeReturn;
 	}
 }
