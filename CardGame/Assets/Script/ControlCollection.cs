@@ -4,12 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
-<<<<<<< HEAD
-using UnityEngine.SceneManagement;
-=======
-using System;
 
->>>>>>> cec9e6e80023d0751f975a659fc75f3f800c4289
 
 public class ControlCollection : MonoBehaviour {
 
@@ -56,7 +51,7 @@ public class ControlCollection : MonoBehaviour {
 	[SerializeField] private Text[] attackArray;
 	[SerializeField] private Text[] healthArray;
 	void Start () {
-		backButton.onClick.AddListener(back);
+		backButton.onClick.AddListener(backtomain);
 		imageArray = new Image[] {image1, image2, image3, image4, image5, image6, image7, image8, image9, image10};
 		attackArray = new Text[] {attack1, attack2, attack3, attack4, attack5, attack6, attack7, attack8, attack9, attack10};
 		healthArray = new Text[] {hp1,hp2,hp3,hp4,hp5,hp6,hp7,hp8,hp9,hp10};
@@ -83,16 +78,8 @@ public class ControlCollection : MonoBehaviour {
 	void Update () {
 		
 	}
-
-<<<<<<< HEAD
-	public void back() {
-		SceneManager.LoadScene("Main");
-		Debug.Log("h");
-	}
-=======
     void backtomain(){
         Debug.Log("WTF");
         SceneManager.LoadScene("Main");
     }
->>>>>>> cec9e6e80023d0751f975a659fc75f3f800c4289
 }
