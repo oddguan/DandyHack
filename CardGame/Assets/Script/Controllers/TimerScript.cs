@@ -116,22 +116,27 @@ public class TimerScript : MonoBehaviour {
                 rarity="SSR";
         }
 		_dbcm=_dbc.CreateCommand();
-		_dbcm.CommandText=string.Format("SELECT ID, Name, Attack, Health, Rarity, Type" +
-			"FROM `CardBase`" + "WHERE Rarity IN (" +
-			"SELECT RarityID FROM `Possibility`"+
-			"WHERE RarityName=\"{0}\")" +
-			"ORDER BY RANDOM() LIMIT 1", rarity);
+		_dbcm.CommandText=string.Format("SELECT ID, Name, Attack, Health, Rarity, Type " +
+			"FROM `CardBase` " + "WHERE Rarity = ( " +
+			"SELECT RarityID FROM `Possibility` "+
+			"WHERE RarityName=\"{0}\") " +
+			"ORDER BY RANDOM() LIMIT 1 ", rarity);
 		_dbr=_dbcm.ExecuteReader();
 		while(_dbr.Read()){
 			int ID = _dbr.GetInt32(0);
-			Debug.Log(ID);
-			Name_text.text = _dbr.GetString(1);
-			toBeReturn = _dbr.GetString(1);
-			Atk_text.text = _dbr.GetFloat(2).ToString();
-			Hp_text.text = _dbr.GetFloat(3).ToString();
+			// Debug.Log(ID);
+			string nt = _dbr.GetString(1);
+			Name_text.text = nt;
+			toBeReturn = nt;
+			string at = _dbr.GetFloat(2).ToString();
+			Atk_text.text = at;
+			string ht = _dbr.GetFloat(3).ToString();
+			Hp_text.text = ht;
 			Rarity_text.text = rarity;
-			File.AppendAllText("Assets/Script/playerInventory.txt", string.Format("{},{},{},{},{},{}",
-			ID,Name_text.text,Rarity_text.text,Atk_text.text, Hp_text.text,_dbr.GetInt32(4)));
+			int type = _dbr.GetInt32(4);
+			File.AppendAllText("Assets/Script/playerInventory.txt", string.Format("{0},{1},{2},{3},{4},{5}\n",
+			ID,nt,rarity,at, ht,type));
+			// File.AppendAllText("test.txt", "hello world");
 		}
 		return toBeReturn;
 	}

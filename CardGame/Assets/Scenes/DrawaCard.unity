@@ -913,7 +913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiText: {fileID: 1518500343}
-  mainTimer: 3
+  mainTimer: 1800
   Opportunity: {fileID: 921665318}
   Mascot: {fileID: 0}
   M: {fileID: 1998152529}

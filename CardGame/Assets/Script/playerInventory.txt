@@ -1,3 +1,5 @@
-1,Harvard University,4,11100,9839,1
-10,Tufts University,1,6544,7427,1
-47,Northeastern University,1,7449,6691,3
+25,Univ. Michigan,N,6853.433,6986.828,1
+1,Harvard University,SSR,11100.26,9839.032,4
+45,UC San Diego,N,7433.427,6610.119,1
+31,Univ. of Georgia,N,5811.712,7215.965,1
+30,Tulane University,N,7116.079,6480.812,1
