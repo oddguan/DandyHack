@@ -37,7 +37,7 @@ public class TimerScript : MonoBehaviour {
 	private string defaultTexturePath="Assets/images/1.jpg";
 
 	void Start() {
-		PlayerPrefs.SetInt("currentOpportunity",1000);
+		PlayerPrefs.SetInt("currentOpportunity",5);
 		currentOpportunity = PlayerPrefs.GetInt("currentOpportunity", 5);
 		timer = mainTimer;
 		toBeDisplay = currentOpportunity.ToString()+"/5";
@@ -116,8 +116,8 @@ public class TimerScript : MonoBehaviour {
                 rarity="SSR";
         }
 		_dbcm=_dbc.CreateCommand();
-		_dbcm.CommandText=string.Format("SELECT ID, Name, Attack, Health, Rarity " +
-			"FROM `CardBase`" + "WHERE Rarity = (" +
+		_dbcm.CommandText=string.Format("SELECT ID, Name, Attack, Health, Rarity, Type" +
+			"FROM `CardBase`" + "WHERE Rarity IN (" +
 			"SELECT RarityID FROM `Possibility`"+
 			"WHERE RarityName=\"{0}\")" +
 			"ORDER BY RANDOM() LIMIT 1", rarity);
@@ -130,6 +130,8 @@ public class TimerScript : MonoBehaviour {
 			Atk_text.text = _dbr.GetFloat(2).ToString();
 			Hp_text.text = _dbr.GetFloat(3).ToString();
 			Rarity_text.text = rarity;
+			File.AppendAllText("Assets/Script/playerInventory.txt", string.Format("{},{},{},{},{},{}",
+			ID,Name_text.text,Rarity_text.text,Atk_text.text, Hp_text.text,_dbr.GetInt32(4)));
 		}
 		return toBeReturn;
 	}

@@ -1,36 +1,3 @@
-Hello
-World
-Hello
-World
-Hello
-World
-Hello
-World
-Hello
-World
-Hello
-World
-Hello
-World
-Hello
-World
-Hello
-World
-Hello
-World
-Hello
-World
-Hello
-World
-Hello
-World
-Hello
-World
-Hello
-World
-Hello
-World
-Hello
-World
-Hello
-World
+1,Harvard University,4,11100,9839,1
+10,Tufts University,1,6544,7427,1
+47,Northeastern University,1,7449,6691,3
