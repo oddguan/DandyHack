@@ -1,9 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
+<<<<<<< HEAD
 using UnityEngine.SceneManagement;
+=======
+using System;
+
+>>>>>>> cec9e6e80023d0751f975a659fc75f3f800c4289
 
 public class ControlCollection : MonoBehaviour {
 
@@ -56,6 +62,7 @@ public class ControlCollection : MonoBehaviour {
 		healthArray = new Text[] {hp1,hp2,hp3,hp4,hp5,hp6,hp7,hp8,hp9,hp10};
 		string[] readArray = new string[10];	
 		int i=0;
+        backButton.onClick.AddListener(backtomain);
 		string[] reads = File.ReadAllLines("Assets/Script/playerInventory.txt");
 		foreach(string r in reads){
 			readArray[i] = r;
@@ -77,8 +84,15 @@ public class ControlCollection : MonoBehaviour {
 		
 	}
 
+<<<<<<< HEAD
 	public void back() {
 		SceneManager.LoadScene("Main");
 		Debug.Log("h");
 	}
+=======
+    void backtomain(){
+        Debug.Log("WTF");
+        SceneManager.LoadScene("Main");
+    }
+>>>>>>> cec9e6e80023d0751f975a659fc75f3f800c4289
 }

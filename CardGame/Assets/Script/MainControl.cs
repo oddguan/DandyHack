@@ -31,6 +31,7 @@ public class MainControl : MonoBehaviour {
 	void SwitchtoCollection()
 	{
 		//Output this to console when Button1 or Button3 is clicked
+        SceneManager.LoadScene("MyCollection");
 		Debug.Log("You have clicked the button Collection");
 	}
 
