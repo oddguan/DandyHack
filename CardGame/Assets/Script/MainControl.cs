@@ -21,7 +21,7 @@ public class MainControl : MonoBehaviour {
         DrawaCard.onClick.AddListener(SwitchtoDrawaCard);
         Collection.onClick.AddListener(SwitchtoCollection);
         InitiateBattle.onClick.AddListener(SwitchtoBattle);
-        DeleteFile();
+        //DeleteFile();
 	}
 
 	void SwitchtoDrawaCard()
@@ -45,31 +45,31 @@ public class MainControl : MonoBehaviour {
         SceneManager.LoadScene("Battle");
 		Debug.Log("You have clicked the button Battle");
 	}
-	void DeleteFile()
-	{
-		string filePath = "Assets/Script/" + fileName + fileExtension;
+//	void DeleteFile()
+//	{
+//		string filePath = "Assets/Script/" + fileName + fileExtension;
 
-		// check if file exists
-		if (!File.Exists(filePath))
-		{
-			Debug.Log( "no " + fileName + " file exists" );
-		}
-		else
-		{
-			Debug.Log( fileName + " file exists, deleting..." );
+//		// check if file exists
+//		if (!File.Exists(filePath))
+//		{
+//			Debug.Log( "no " + fileName + " file exists" );
+//		}
+//		else
+//		{
+//			Debug.Log( fileName + " file exists, deleting..." );
 
-			File.Delete(filePath);
+//			File.Delete(filePath);
 
-			RefreshEditorProjectWindow();
-		}
-	}
+//			RefreshEditorProjectWindow();
+//		}
+//	}
 
-	void RefreshEditorProjectWindow()
-	{
-#if UNITY_EDITOR
-         UnityEditor.AssetDatabase.Refresh();
-#endif
-	}
+//	void RefreshEditorProjectWindow()
+//	{
+//#if UNITY_EDITOR
+//         UnityEditor.AssetDatabase.Refresh();
+//#endif
+	//}
 
 	// Update is called once per frame
 	void Update () {

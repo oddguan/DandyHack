@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
+using System;
 
 
 public class ControlCollection : MonoBehaviour {
@@ -51,14 +52,14 @@ public class ControlCollection : MonoBehaviour {
 	[SerializeField] private Text[] attackArray;
 	[SerializeField] private Text[] healthArray;
 	void Start () {
-		backButton.onClick.AddListener(backtomain);
 		imageArray = new Image[] {image1, image2, image3, image4, image5, image6, image7, image8, image9, image10};
 		attackArray = new Text[] {attack1, attack2, attack3, attack4, attack5, attack6, attack7, attack8, attack9, attack10};
 		healthArray = new Text[] {hp1,hp2,hp3,hp4,hp5,hp6,hp7,hp8,hp9,hp10};
 		string[] readArray = new string[10];	
 		int i=0;
         backButton.onClick.AddListener(backtomain);
-		string[] reads = File.ReadAllLines("Assets/Script/playerInventory.txt");
+        string[] reads = new string[10];
+		reads = File.ReadAllLines("Assets/Script/playerInventory.txt");
 		foreach(string r in reads){
 			readArray[i] = r;
 			i++;
@@ -78,6 +79,7 @@ public class ControlCollection : MonoBehaviour {
 	void Update () {
 		
 	}
+
     void backtomain(){
         Debug.Log("WTF");
         SceneManager.LoadScene("Main");
