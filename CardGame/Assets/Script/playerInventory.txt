@@ -1,15 +1,7 @@
-10,Tufts University,N,6825.441,6952.122,1
-30,Tulane University,N,7116.079,6480.812,1
-40,Washington University-st. Louis,R,7985.104,8570.56,2
-21,Brown University,R,8195.005,7934.354,2
-15,UC Irvine,N,6844.592,6914.994,1
-13,Univ. Florida,N,6449.346,6769.314,1
-10,Tufts University,N,6825.441,6952.122,1
-8,University of Virgina,N,6796.723,6068.74,1
-32,Univ. Wisconsin Madison,N,7528.055,7553.026,1
-21,Brown University,R,8195.005,7934.354,2
-29,Boston University,N,7414.425,6797.373,1
-50,Univ. Texus Austin,N,6722.558,6976.122,1
-27,New York University,N,7799.203,6763.224,1
-22,Vandibilt University,R,7242.376,6545.909,2
-43,College of William and Mary,N,7475.955,8394.646,1
+24,Emory University,R,8338.65,7476.815,2
+2,Duke University,SR,8130.924,9653.118,3
+12,Brandeis University,N,5718.601,7197.297,1
+44,UC Davis,N,7413.701,7542.173,1
+33,Princeton University,SSR,10829.67,10140.92,4
+28,UNC Chapel Hill,N,7065.604,7705.707,1
+33,Princeton University,SSR,10829.67,10140.92,4
